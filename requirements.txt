@@ -1,0 +1,7 @@
+numpy
+scipy
+typeguard
+matplotlib
+h5py
+tensorflow >= 2.0
+seaborn
