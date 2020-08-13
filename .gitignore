@@ -1,7 +1,9 @@
 result/*
+ninaPro/*
 othernina/*
 nina4/*
 biopat/*
+venv/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -10,6 +12,11 @@ __pycache__/
 
 # C extensions
 *.so
+*.h5
+
+#other
+*.dmp
+window_size.py
 
 # Distribution / packaging
 .Python

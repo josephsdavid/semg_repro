@@ -222,8 +222,7 @@ class dataset(object):
                 if np.unique(self.repetition[i]).shape[0] == 1
             ]
         )
-
-
+        perc = no_leaks.shape[0] / self.emg.shape[0]
 
         self.emg = self.emg[no_leaks, :, :]
         self.imu = self.imu[no_leaks, :, :]
@@ -234,7 +233,6 @@ class dataset(object):
         # using the first class that appears in a window. Intuitively, this
         # makes sense, as when someone is grabbing something then finishes
         # halfway through, they still completed the act of grabbing something
-
 
         self.labels = first_appearance(self.labels)
         self.repetition = first_appearance(self.repetition)
@@ -498,7 +496,6 @@ class nina1_dataset(dataset):
                 if np.unique(self.repetition[i]).shape[0] == 1
             ]
         )
-
 
         self.emg = self.emg[no_leaks, :, :]
         self.labels = self.labels[no_leaks, :]
