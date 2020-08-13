@@ -23,17 +23,16 @@ from data import dataset
 from generator import generator
 
 imu = False
-if sys.argv and sys.argv[0]=='imu':
+if sys.argv and sys.argv[-1]=='imu':
     imu = True
 
 # download the data
 if "ninaPro" not in listdir():
     system('wget -c https://www.dropbox.com/s/kxrqhqhcz367v77/nina.tar.gz?dl=1 -O - | tar -xz')
 
-
 # read in the data
 
-data = dataset("./ninaPro", imu = imu)
+data = dataset("./ninaPro")
 
 reps = np.unique(data.repetition)
 val_reps = reps[3::2]
@@ -41,9 +40,9 @@ train_reps = reps[np.where(np.isin(reps, val_reps, invert=True))]
 test_reps = val_reps[-1].copy()
 val_reps = val_reps[:-1]
 
-train = generator(data, list(train_reps))
-validation = generator(data, list(val_reps), augment=False)
-test = generator(data, [test_reps][0], augment=False)
+train = generator(data, list(train_reps), imu = imu)
+validation = generator(data, list(val_reps), augment=False, imu = imu)
+test = generator(data, [test_reps][0], augment=False, imu = imu)
 
 
 # model parameters
