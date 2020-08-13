@@ -1,4 +1,5 @@
-from os import system
+from os import system, listdir
+import sys
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras import backend as K
@@ -21,13 +22,18 @@ from layers import Attention, LayerNormalization
 from data import dataset
 from generator import generator
 
+imu = False
+if sys.argv and sys.argv[0]=='imu':
+    imu = True
+
 # download the data
-system('wget -c https://www.dropbox.com/s/kxrqhqhcz367v77/nina.tar.gz?dl=1 -O - | tar -xz')
+if "ninaPro" not in listdir():
+    system('wget -c https://www.dropbox.com/s/kxrqhqhcz367v77/nina.tar.gz?dl=1 -O - | tar -xz')
 
 
 # read in the data
 
-data = dataset("./ninaPro")
+data = dataset("./ninaPro", imu = imu)
 
 reps = np.unique(data.repetition)
 val_reps = reps[3::2]
