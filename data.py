@@ -1,6 +1,5 @@
 # built in libraries
 import random
-import multiprocessing
 
 # third party
 import numpy as np
