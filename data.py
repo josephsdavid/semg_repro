@@ -90,8 +90,7 @@ def first0(x):
 def first_appearance(arr):
     # gets the first class in the case of overlapping due to our windowing
     inn = [arr[i] for i in range(arr.shape[0])]
-    with multiprocessing.Pool(None) as p:
-        res = p.map(first0, inn)
+    res = map(first0, inn)
     return np.asarray(res)
 
 
