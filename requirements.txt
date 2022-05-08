@@ -3,5 +3,5 @@ scipy
 typeguard
 matplotlib
 h5py
-tensorflow-gpu >= 2.0
+tensorflow-gpu >= 2.0, <2.6.0
 seaborn
