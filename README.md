@@ -1,5 +1,7 @@
 # Reproduce paper
 
+Code to reproduce [sEMG Gesture Recognition With a Simple Model of Attention](http://proceedings.mlr.press/v136/josephs20a)
+
 ## Reproduce environment
 
 ```bash
